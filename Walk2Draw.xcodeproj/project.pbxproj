@@ -3,27 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		370E17A82484B45B006B2F3A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E17A72484B45B006B2F3A /* AppDelegate.swift */; };
 		370E17AA2484B45B006B2F3A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E17A92484B45B006B2F3A /* SceneDelegate.swift */; };
-		370E17AC2484B45B006B2F3A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E17AB2484B45B006B2F3A /* ViewController.swift */; };
-		370E17AF2484B45B006B2F3A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370E17AD2484B45B006B2F3A /* Main.storyboard */; };
 		370E17B12484B45E006B2F3A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 370E17B02484B45E006B2F3A /* Assets.xcassets */; };
 		370E17B42484B45E006B2F3A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 370E17B22484B45E006B2F3A /* LaunchScreen.storyboard */; };
+		370E17BD2484B544006B2F3A /* LogStore in Frameworks */ = {isa = PBXBuildFile; productRef = 370E17BC2484B544006B2F3A /* LogStore */; };
+		370E17BF2484D37E006B2F3A /* LocationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E17BE2484D37E006B2F3A /* LocationProvider.swift */; };
+		370E17C12485AD51006B2F3A /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E17C02485AD50006B2F3A /* DrawView.swift */; };
+		370E17C32485B20A006B2F3A /* DrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 370E17C22485B20A006B2F3A /* DrawViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		370E17A42484B45B006B2F3A /* Walk2Draw.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Walk2Draw.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		370E17A72484B45B006B2F3A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		370E17A92484B45B006B2F3A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		370E17AB2484B45B006B2F3A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		370E17AE2484B45B006B2F3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		370E17B02484B45E006B2F3A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		370E17B32484B45E006B2F3A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		370E17B52484B45E006B2F3A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		370E17BE2484D37E006B2F3A /* LocationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationProvider.swift; sourceTree = "<group>"; };
+		370E17C02485AD50006B2F3A /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		370E17C22485B20A006B2F3A /* DrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				370E17BD2484B544006B2F3A /* LogStore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,10 +60,11 @@
 		370E17A62484B45B006B2F3A /* Walk2Draw */ = {
 			isa = PBXGroup;
 			children = (
+				370E17C22485B20A006B2F3A /* DrawViewController.swift */,
+				370E17C02485AD50006B2F3A /* DrawView.swift */,
 				370E17A72484B45B006B2F3A /* AppDelegate.swift */,
 				370E17A92484B45B006B2F3A /* SceneDelegate.swift */,
-				370E17AB2484B45B006B2F3A /* ViewController.swift */,
-				370E17AD2484B45B006B2F3A /* Main.storyboard */,
+				370E17BE2484D37E006B2F3A /* LocationProvider.swift */,
 				370E17B02484B45E006B2F3A /* Assets.xcassets */,
 				370E17B22484B45E006B2F3A /* LaunchScreen.storyboard */,
 				370E17B52484B45E006B2F3A /* Info.plist */,
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = Walk2Draw;
+			packageProductDependencies = (
+				370E17BC2484B544006B2F3A /* LogStore */,
+			);
 			productName = Walk2Draw;
 			productReference = 370E17A42484B45B006B2F3A /* Walk2Draw.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = 370E179B2484B45B006B2F3A;
+			packageReferences = (
+				370E17BB2484B544006B2F3A /* XCRemoteSwiftPackageReference "LogStore2" */,
+			);
 			productRefGroup = 370E17A52484B45B006B2F3A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,7 +138,6 @@
 			files = (
 				370E17B42484B45E006B2F3A /* LaunchScreen.storyboard in Resources */,
 				370E17B12484B45E006B2F3A /* Assets.xcassets in Resources */,
-				370E17AF2484B45B006B2F3A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				370E17AC2484B45B006B2F3A /* ViewController.swift in Sources */,
+				370E17C32485B20A006B2F3A /* DrawViewController.swift in Sources */,
+				370E17C12485AD51006B2F3A /* DrawView.swift in Sources */,
+				370E17BF2484D37E006B2F3A /* LocationProvider.swift in Sources */,
 				370E17A82484B45B006B2F3A /* AppDelegate.swift in Sources */,
 				370E17AA2484B45B006B2F3A /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +159,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		370E17AD2484B45B006B2F3A /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				370E17AE2484B45B006B2F3A /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		370E17B22484B45E006B2F3A /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -285,6 +289,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5MY539D428;
 				INFOPLIST_FILE = Walk2Draw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -302,6 +307,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5MY539D428;
 				INFOPLIST_FILE = Walk2Draw/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -336,6 +342,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		370E17BB2484B544006B2F3A /* XCRemoteSwiftPackageReference "LogStore2" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dasdom/LogStore2.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		370E17BC2484B544006B2F3A /* LogStore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 370E17BB2484B544006B2F3A /* XCRemoteSwiftPackageReference "LogStore2" */;
+			productName = LogStore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 370E179C2484B45B006B2F3A /* Project object */;
 }
