@@ -9,6 +9,7 @@
 import UIKit
 import LogStore
 import CoreLocation
+import MapKit
 
 class DrawViewController: UIViewController {
     
@@ -29,6 +30,11 @@ class DrawViewController: UIViewController {
         contentView.clearButton.addTarget(
             self,
             action: #selector(clear(_:)),
+            for: .touchUpInside)
+        
+        contentView.shareButton.addTarget(
+            self,
+            action: #selector(share(_:)),
             for: .touchUpInside)
         
         view = contentView
@@ -61,6 +67,54 @@ class DrawViewController: UIViewController {
         locations.removeAll()
         contentView.addOverlay(with: locations)
     }
+    
+    @objc func share(_ sender: UIButton) {
+        if locations.isEmpty {
+            return
+        }
+        let options = MKMapSnapshotter.Options()
+        options.region = contentView.mapView.region
+        
+        let snapshotter = MKMapSnapshotter(options: options)
+        snapshotter.start { snapshot, error in
+            guard let snapshot = snapshot else {
+                return
+            }
+            let image = self.imageByAddingPath(with: self.locations, to: snapshot)
+            let activity = UIActivityViewController(activityItems: [image, "Walk2Draw"], applicationActivities: nil)
+            self.present(activity, animated: true)
+        }
+        
+    }
+    
+    func imageByAddingPath(
+        with locations: [CLLocation],
+        to snapshot: MKMapSnapshotter.Snapshot)
+        -> UIImage {
+            UIGraphicsBeginImageContextWithOptions(snapshot.image.size, true, snapshot.image.scale)
+            snapshot.image.draw(at: .zero)
+            let bezierPath = UIBezierPath()
+            guard let firstCoordinate = locations.first?.coordinate else {
+                fatalError("locations array is empty")
+            }
+             let firstPoint = snapshot.point(for: firstCoordinate)
+            bezierPath.move(to: firstPoint)
+            for location in locations.dropFirst() {
+                let point = snapshot.point(for: location.coordinate)
+                bezierPath.addLine(to: point)
+            }
+            UIColor.purple.setStroke()
+            bezierPath.lineWidth = 2
+            bezierPath.stroke()
+            
+            guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
+                fatalError("could not get image from context")
+            }
+            UIGraphicsEndImageContext()
+            return image
+            }
+    }
+
     /*
     // MARK: - Navigation
 
@@ -71,4 +125,4 @@ class DrawViewController: UIViewController {
     }
     */
 
-}
+
