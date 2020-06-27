@@ -14,6 +14,7 @@ class DrawView: UIView {
     let clearButton: UIButton
     let startStopButton: UIButton
     let shareButton: UIButton
+    let distanceLabel: UILabel
     
     override init(frame: CGRect) {
         mapView = MKMapView()
@@ -28,6 +29,12 @@ class DrawView: UIView {
         shareButton = UIButton(type: .system)
         shareButton.setTitle("Share", for: .normal)
         
+        distanceLabel = UILabel()
+        distanceLabel.textColor = UIColor.black
+        distanceLabel.backgroundColor = UIColor.white
+        distanceLabel.textAlignment = NSTextAlignment.right
+        distanceLabel.text = "0.0 km"
+
         super.init(frame: frame)
         
         backgroundColor = UIColor.white
@@ -35,7 +42,7 @@ class DrawView: UIView {
         mapView.delegate = self
         
         let buttonStackView = UIStackView(
-            arrangedSubviews: [clearButton, startStopButton, shareButton])
+            arrangedSubviews: [clearButton, startStopButton, shareButton, distanceLabel])
         buttonStackView.distribution = .fillEqually
         
         let stackView = UIStackView(
