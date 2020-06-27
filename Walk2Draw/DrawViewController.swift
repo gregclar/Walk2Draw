@@ -53,7 +53,6 @@ class DrawViewController: UIViewController {
             updateHandler: { [weak self] location in
                 guard let self = self else { return }
                 
-                //self.metresTravelled = self.locations.last?.distance(from: location) as! Double
                 if self.locations.last != nil {
                     self.metresTravelled = self.locations.last?.distance(from: location) as! Double
                 } else {
@@ -64,8 +63,7 @@ class DrawViewController: UIViewController {
                 //printLog("distance: \(String(describing: self.locations.last?.distance(from: location))) metres")
                 printLog("total km: \(String(describing: self.totalMetresTravelled/1000))")
                 //printLog("location: \(location)")
-                self.contentView.distanceLabel.text = "viewDidLoad"
-                self.contentView.distanceLabel.text = String(format:"%f", self.totalMetresTravelled/1000)
+                self.contentView.distanceLabel.text = String(format:"%.2f km ", ((self.totalMetresTravelled/1000) * 100).rounded()/100)
                 self.locations.append(location)
                 self.contentView.addOverlay(with: self.locations)
         })
